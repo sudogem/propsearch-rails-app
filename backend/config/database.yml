@@ -8,14 +8,13 @@ default: &default
   # adapter: sqlite3
   # pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   # timeout: 5000
-  # adapter: <%= ENV['DATABASE_ADAPTER'] || 'postgresql' %>
-  # encoding: utf8
-  # pool: 5
-  # username: <%= ENV['DATABASE_USER'] || 'postgres' %>
-  # password: <%= ENV['DATABASE_PASSWORD'] || 'password' %>
-  # host: <%= ENV['DATABASE_HOST'] || 'localhost' %>
-  # url: 'postgresql://neondb_owner:abc_DEFGHIJKLMNO@ep-curly-heart-amafoi1j-pooler.c-5.us-east-1.aws.neon.tech/landchecker_db?sslmode=require&channel_binding=require'
-  url: <%= ENV['DATABASE_URL'] %>
+  adapter: <%= ENV['DATABASE_ADAPTER'] || 'postgresql' %>
+  encoding: utf8
+  pool: 5
+  username: <%= ENV['DATABASE_USER'] || 'postgres' %>
+  password: <%= ENV['DATABASE_PASSWORD'] || 'password' %>
+  host: <%= ENV['DATABASE_HOST'] || 'localhost' %>
+  # url: <%= ENV['DATABASE_URL'] || 'postgresql://neondb_owner:abc_DEFGHIJKLMNO@ep-curly-heart-amafoi1j-pooler.c-5.us-east-1.aws.neon.tech/landchecker_db?sslmode=require&channel_binding=require' %>
 
 development:
   <<: *default
@@ -28,7 +27,7 @@ development:
 test:
   <<: *default
   # database: storage/landchecker_test.sqlite3
-  database: <%= ENV['DATABASE_TEST'] || 'landchecker_test' %>
+  database: <%= ENV['DATABASE'] || 'landchecker_test' %>
 
 # SQLite3 write its data on the local filesystem, as such it requires
 # persistent disks. If you are deploying to a managed service, you should
