@@ -1,5 +1,4 @@
 # spec/factories/users.rb
-require "rails_helper"
 require 'faker'
 
 FactoryBot.define do

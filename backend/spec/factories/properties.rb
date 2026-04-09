@@ -1,6 +1,5 @@
 # spec/factories/properties.rb
 require "faker"
-require "rails_helper"
 
 FactoryBot.define do
   factory :property do
